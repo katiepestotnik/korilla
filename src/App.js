@@ -8,7 +8,7 @@ import receiptsArr from "./receiptData";
 function App() {
   const [receipt, setReceipt] = useState(receiptsArr)
   const filterReceipts = (input) => {
-    const filtered = receipt.filter((ele) => ele.person === input)
+    const filtered = receiptsArr.filter((ele) => ele.person === input)
     if (input === '')setReceipt(receiptsArr)
     else setReceipt(filtered)
   }
