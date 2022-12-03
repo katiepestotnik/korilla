@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import Button from './Button'
 const Receipt = ({ person, order, paid }) => {
     !paid ? paid = 'No' : paid = 'Yes'  
-    const [clear, setClear] = useState(paid)
+    const [toggle, setToggle] = useState(paid)
     const handleClick = () => {
-        if(paid)setClear('Yes') 
-        else setClear('No')
+        if(paid)setToggle('Yes') 
+        else setToggle('No')
     }
     return (
         <div className='single'>
@@ -27,8 +28,8 @@ const Receipt = ({ person, order, paid }) => {
                 <div>
                     Cost: {order.cost}
                 </div>
-                <button onClick={handleClick}>
-                    Paid: {clear}
+                <button className='toggler' onClick={handleClick}>
+                    Paid: {toggle}
                 </button>
             </div>
         </div>
