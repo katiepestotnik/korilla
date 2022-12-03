@@ -1,5 +1,11 @@
+import { useState } from 'react'
 const Receipt = ({ person, order, paid }) => {
-    !paid?paid='No':paid='Yes'
+    !paid ? paid = 'No' : paid = 'Yes'  
+    const [clear, setClear] = useState(paid)
+    const handleClick = () => {
+        if(paid)setClear('Yes') 
+        else setClear('No')
+    }
     return (
         <div className='single'>
             <h1>{person}</h1>
@@ -21,9 +27,9 @@ const Receipt = ({ person, order, paid }) => {
                 <div>
                     Cost: {order.cost}
                 </div>
-                <div>
-                    Paid: {paid}
-                </div>
+                <button onClick={handleClick}>
+                    Paid: {clear}
+                </button>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import Receipt from "./Receipt"
 
-const Receipts = ({ receiptArr}) => {
+const Receipts = ({ receiptArr }) => {
     const singleReceipt = receiptArr.map((ele, idx) => {
         return (
             <Receipt
