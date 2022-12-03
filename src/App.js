@@ -7,15 +7,19 @@ import receiptsArr from "./receiptData";
 
 function App() {
   const [receipt, setReceipt] = useState(receiptsArr)
-  const [name, setName] = useState('')
+  const filterReceipts = (input) => {
+    const filtered = receipt.filter((ele) => ele.person === input)
+    if (input === '')setReceipt(receiptsArr)
+    else setReceipt(filtered)
+  }
   return (
     <>
       <div>
         <h1 className="title">Korilla Receipts</h1>
-        <Form name={name} />
+        <Form filterReceipts={filterReceipts}/>
       </div>
       <main>
-        <Receipts receiptArr={receipt} />
+        <Receipts receiptArr={receipt}/>
       </main>
     </>
 
