@@ -1,20 +1,22 @@
 import { useState } from 'react'
 const Form = ({ filterReceipts }) => {
-    const [input, setInput] = useState({
-        search: ''
-    })
+    const [input, setInput] = useState('')
     const handleChange = (e) => {
-        setInput({ ...input, [e.target.name]:e.target.value })
+        setInput(e.target.value)
+    }
+    const handleClick = () => {
+        filterReceipts(input)
+        setInput('')
     }
     return (
         <div className="form">
             <input
                 placeholder='Customer Name'
-                value={input.search}
+                value={input}
                 onChange={handleChange}
                 name='search'
             />
-            <button onClick={()=>filterReceipts(input.search)}>SEARCH</button>
+            <button onClick={handleClick}>SEARCH</button>
         </div>
 
     )
