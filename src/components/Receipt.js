@@ -1,22 +1,19 @@
 import { useState} from 'react'
 import Button from './Button'
 
-const Receipt = ({ person, order, paid }) => {
-    !paid ? paid = 'No' : paid = 'Yes'  
-    const [toggle, setToggle] = useState(paid)
+const Receipt = ({ person, order, paid, payment }) => {
+    !paid ? paid = 'No' : paid = 'Yes' 
+    let paidToggle = paid
+    const [toggle, setToggle] = useState(paidToggle)
     const handleClick = (e) => {
         console.log( 'paid=',paid, 'toggle=',toggle)
-        if (paid === 'Yes') {
-            paid = 'No'
+        if (toggle === 'Yes') {
             setToggle('No')
-
             console.log( 'paid=',paid, 'toggle=',toggle)
         }
-        else if (paid === 'No') {
-            paid = 'Yes'
+        else if (toggle === 'No') {
             //not setting
             setToggle('Yes')
-
             console.log( 'paid=',paid, 'toggle=',toggle)
         }
     }

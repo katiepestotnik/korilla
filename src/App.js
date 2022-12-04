@@ -12,6 +12,12 @@ function App() {
     if (input === '')setReceipt(receiptsArr)
     else setReceipt(filtered)
   }
+  const payment = () => {
+    receiptsArr.map((ele) => {
+      console.log(ele.paid)
+      return ele.paid
+    })
+  }
   return (
     <>
       <div>
@@ -19,7 +25,7 @@ function App() {
         <Form filterReceipts={filterReceipts}/>
       </div>
       <main>
-        <Receipts receiptArr={receipt}/>
+        <Receipts receiptArr={receipt} payment={payment}/>
       </main>
     </>
 
